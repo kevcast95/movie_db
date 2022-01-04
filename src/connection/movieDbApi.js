@@ -16,11 +16,4 @@ export const getMovieDetails = (movie_id) => {
  })
 }
 
-export const getMoviesGenres = () => {
- const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=21d48dd94eb2105951a273ec15768f0a&language=en-US`
- return axios({
-  method: 'GET',
-  url
- })
-}
 
