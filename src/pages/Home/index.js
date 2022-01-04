@@ -14,7 +14,6 @@ export default function Home() {
   },[page])
 
   function navigationMovies(direction) {
-    console.log("Que pasa", direction);
     if (direction === 'next') setPage(page + 1)
     if (direction === 'back') setPage(page - 1)
   }

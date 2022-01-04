@@ -8,7 +8,6 @@ export default function NavBar() {
  let location = useLocation();
  const navigate = useNavigate();
  const [tabPosition, setTabPosition] = useState("home");
- console.log(location);
  const tabOptions = [
   {
    iconName:"Home",
