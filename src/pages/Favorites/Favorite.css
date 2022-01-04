@@ -1,0 +1,22 @@
+.Favorites__container {
+ width: 370px;
+ background: linear-gradient(#383b4b,#0f0f18);
+ margin: 0 auto;
+}
+
+.Favorites_list {
+ width: 370px;
+ height: calc(100vh - 60px);
+ max-height: calc(100vh - 60px);
+ overflow-y: auto;
+}
+
+@media (min-width: 600px) {
+ .Favorites__container {
+  width: 100vw;
+  overflow-x: hidden;
+ }
+ 
+}
+
+

@@ -1,0 +1,90 @@
+.Login__container {
+ width: 370px;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-image: url("../../assets/background.jpg");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ margin: 0 auto;
+}
+
+.Login__form {
+ width: 300px;
+ height: 350px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background: linear-gradient(#252733,#0f0f18);
+ border-radius: 10px;
+}
+
+.Login__form > h1 {
+ text-align: center;
+ color: white;
+ margin: 5px 0px;
+}
+
+.Input_credentials{
+ width: 90%;
+ padding: 10px;
+ margin: 10px 0px;
+ 
+}
+.Main_btn{
+ width: 90%;
+ padding: 10px;
+ margin: 10px 0px;
+ color: white;
+ font-weight: bold;
+ border: none;
+ outline: none;
+ box-shadow: 0px 0px 3px 1px rgb(211 209 209 / 75%);
+ cursor: pointer;
+}
+
+.Main_btn:active {
+ box-shadow: none;
+}
+
+.primary {
+ background-color: rgb(1, 210, 119);
+}
+
+.secundary {
+ background-color: #4285f4;
+}
+
+.Create_text {
+ color: white;
+ padding: 10px;
+ margin: 10px 0px;
+}
+
+@media (min-width: 400px) {
+ .Login__container {
+  width: 600px;
+ }
+}
+
+@media (min-width: 800px) {
+ .Login__container {
+  width: 100vw;
+ }
+
+ .Login__form {
+  width: 500px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.863);
+ 
+ }
+}
+
+
