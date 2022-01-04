@@ -5,7 +5,7 @@
 }
 
 .Favorites_list {
- width: 370px;
+ width: 100%;
  height: calc(100vh - 60px);
  max-height: calc(100vh - 60px);
  overflow-y: auto;
@@ -13,10 +13,17 @@
 
 @media (min-width: 600px) {
  .Favorites__container {
-  width: 100vw;
+  width: 600px;
   overflow-x: hidden;
  }
  
 }
 
+@media (min-width: 800px) {
+ .Favorites__container {
+  width: 100vw;
+  overflow-x: hidden;
+ }
+ 
+}
 

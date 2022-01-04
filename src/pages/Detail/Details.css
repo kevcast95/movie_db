@@ -2,7 +2,9 @@
  position: relative;
  width: 370px;
  height: 100vh;
+ max-height: 100vh;
  margin: 0 auto;
+ overflow-y: auto;
 }
 
 .Detail__image_container {
@@ -28,11 +30,11 @@
 
 .Detail_description_container {
  width: 100%;
- height: calc(100% - 400px);
+ height: calc(100vh - 350px);
  display: flex;
  flex-direction: column;
  align-items: center;
- justify-content: space-between;
+ 
 }
 
 .Tags_container {
@@ -68,20 +70,6 @@
  text-align: left;
 }
 
-.Production_companies_container {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 10px;
-  background-color: #fcfeff;
-  padding: 20px;
-  margin-bottom: 10px;
-}
-
-.Companies_logos {
-  width: 100px;
-}
 
 @media (min-width: 600px) {
  .Details__container {
@@ -94,6 +82,7 @@
   .Details__container {
    width: 100vw;
  }
+ 
 }
 
 

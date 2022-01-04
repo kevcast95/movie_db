@@ -45,12 +45,12 @@ export default function NavBar() {
      {
       tabOptions.map((tab,index)=>{
        return(
-        <li key={index} className="Icon__container" onClick={()=>tab.action(tab.page)}>
+        <li key={index} className={tabPosition.pathname === tab.page? "Tab_icons_selected Icon__container": "Icon__container"} onClick={()=>tab.action(tab.page)}>
         <Icons 
          name={tab.iconName} 
          fill="#fcfeff" 
          stroke="#BCBCBC" 
-         className={tabPosition.pathname === tab.page? "Tab_icons_selected": "Tab_icons" }
+         className="Tab_icons"
         />
        </li>
        )

@@ -4,7 +4,6 @@ import Icons from "../../assets/Icons";
 import "./MovieCards.css";
 
 export default function MovieCards({ movies }) {
- console.log(movies);
  return (
   <Fragment>
    {movies.map((movie) => {

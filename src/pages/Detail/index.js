@@ -16,7 +16,6 @@ export default function Details() {
  
  const tagsOp = [movieDetail?.adult ? "18+" : "6+",movieDetail?.release_date, movieDetail?.popularity,];
  const genres = movieDetail?.genres;
- const companies = movieDetail?.production_companies;
 
  return (
   <Fragment>
@@ -57,19 +56,7 @@ export default function Details() {
        <h3>{movieDetail?.title}</h3>
        <p>{movieDetail?.overview}</p>
       </div>
-      <div className="Production_companies_container">
-       {
-        companies?.map(comp=>{
-         return(
-          <img 
-           className="Companies_logos"
-           src={`https://image.tmdb.org/t/p/w500${comp.logo_path}`} 
-           alt={`company logo ${comp.name}`} 
-          />
-         )
-        })
-       }
-      </div>
+      
      </div>
     </div>
    </section>
