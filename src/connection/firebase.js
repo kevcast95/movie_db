@@ -68,33 +68,36 @@ const googleLogin = async () => {
 
 const addFavorites = async (id, email) => {
     try {
-      const docRef = await setDoc(doc(db, "usuarios", email), {
+      const docRef = await setDoc(doc(db, "fav_users", email), {
         favorites: [id]
       });
     } catch (e) {
-      toastMessage('error', 'Upps an error has occurred, please try!', 'error_adding_favorite')
+      console.log(e);
+      toastMessage('error', 'Upps could not add to favorite, please try again!', 'error_adding_favorite')
     }
   }
   
 const updateFavorites = async (id, email) => {
-    const document = doc(db, "usuarios", email);
+  
+  console.log("id:",id,"email:",email);
+    const document = doc(db, "fav_users", email);
     try {
         await updateDoc(document, {
         favorites: arrayUnion(id)
         })
     } catch (e) {
-        toastMessage('error', 'Upps an error has occurred, please try!', 'error_updating_favorite')
+        toastMessage('error', 'Upps could not update favorites, please try again!', 'error_updating_favorite')
     }
 };
   
 const removeFavorites = async (id, email) => {
-    const document = doc(db, "usuarios", email);
+    const document = doc(db, "fav_users", email);
     try {
         await updateDoc(document, {
         favorites: arrayRemove(id)
         })
     } catch (e) {
-        toastMessage('error', 'Upps an error has occurred, please try!', 'error_removing_favorite')
+        toastMessage('error', 'Upps an error has occurred, please try again!', 'error_removing_favorite')
     }
 };
 

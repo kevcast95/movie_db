@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Icons from "../../assets/Icons";
 import { getMovieDetails } from "../../connection/movieDbApi";
 import { useLocation } from 'react-router-dom'
+import Loading from "../../components/Loading"
 import IsLogged from "../../utils/IsLogged";
 
 import "./Details.css";
@@ -9,6 +10,7 @@ import "./Details.css";
 export default function Details() {
  let location = useLocation().state;
  const [movieDetail, setMovieDetail] = useState(undefined);
+ const [loading, setLoading] = useState(true);
 
  IsLogged();
  useEffect(()=>{
@@ -16,10 +18,17 @@ export default function Details() {
   detail.then(res=> {
    setMovieDetail(res.data)
   })
+  setTimeout(()=>{
+    setLoading(false)
+  },300)
  },[])
  
  const tagsOp = [movieDetail?.adult ? "18+" : "6+",movieDetail?.release_date, movieDetail?.popularity,];
  const genres = movieDetail?.genres;
+
+ if (loading) {
+    return <Loading/>
+ }
 
  return (
   <Fragment>

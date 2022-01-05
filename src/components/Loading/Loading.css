@@ -1,0 +1,23 @@
+.Loadind__container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#383b4b,#0f0f18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Loading_icon {
+      animation: App-logo-spin infinite 2s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

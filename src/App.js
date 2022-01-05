@@ -11,12 +11,13 @@ import Home from './pages/Home';
 import Details from './pages/Detail';
 import Favorites from './pages/Favorites';
 import Register from './pages/Register';
+import Loading from './components/Loading';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path="/" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />

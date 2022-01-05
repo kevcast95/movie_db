@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { addFavorites, updateFavorites, removeFavorites, db } from '../../connection/firebase';
 import Icons from "../../assets/Icons";
@@ -9,10 +9,29 @@ export default function MovieCards({ user,movies }) {
   const [favoritesList, setFavoritesList] = useState(0);
   const [favorite, setFavorite] = useState(false);
 
+
+
+  useEffect(() => {
+    const subscribe = db
+      .collection("fav_users")
+      .onSnapshot((snapshot) => {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        const list = data.filter(item => item.id === user)
+        list !== docListener && setDocListener(list[0]);
+      });
+  }, [favorite]);
+
+  useEffect(() => {
+    if (docListener) {
+      setFavoritesList(docListener.favorites)
+    }
+  }, [docListener])
+
   const handleFavorites = (movie_id) => {
-    console.log("sdsdsd");
-    setFavorite(!favorite)
-    if (!favorite) {
+    if (!favoritesList.includes(movie_id)) {
       if (docListener !== 0) {
         if (typeof (docListener) === 'object') {
           return updateFavorites(movie_id, user)
@@ -22,6 +41,8 @@ export default function MovieCards({ user,movies }) {
     }else {
       return removeFavorites(movie_id, user)
     }
+    setFavorite(!favorite);
+   
   }
 
  return (
@@ -45,7 +66,7 @@ export default function MovieCards({ user,movies }) {
        <span onClick={() => handleFavorites(movie.id)}>
         <Icons
          name="Favorite"
-         fill="none"
+         fill={ (favoritesList && favoritesList.includes(movie.id))? "#01d277": "none"}
          stroke="#01d277"
          className="Add_to_fav"
         />
