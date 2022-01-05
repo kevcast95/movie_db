@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import Details from './pages/Detail';
 import Favorites from './pages/Favorites';
 import Register from './pages/Register';
-import Loading from './components/Loading';
 import './App.css';
 
 function App() {

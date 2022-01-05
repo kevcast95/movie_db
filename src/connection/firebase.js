@@ -72,14 +72,11 @@ const addFavorites = async (id, email) => {
         favorites: [id]
       });
     } catch (e) {
-      console.log(e);
       toastMessage('error', 'Upps could not add to favorite, please try again!', 'error_adding_favorite')
     }
   }
   
 const updateFavorites = async (id, email) => {
-  
-  console.log("id:",id,"email:",email);
     const document = doc(db, "fav_users", email);
     try {
         await updateDoc(document, {
@@ -103,7 +100,6 @@ const removeFavorites = async (id, email) => {
 
 
 const logOut = () => {
-    console.log("sdsd");
     auth.signOut();
 }
 
