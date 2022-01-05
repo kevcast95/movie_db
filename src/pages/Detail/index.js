@@ -2,11 +2,15 @@ import React, { Fragment, useState, useEffect } from "react";
 import Icons from "../../assets/Icons";
 import { getMovieDetails } from "../../connection/movieDbApi";
 import { useLocation } from 'react-router-dom'
+import IsLogged from "../../utils/IsLogged";
+
 import "./Details.css";
 
 export default function Details() {
  let location = useLocation().state;
  const [movieDetail, setMovieDetail] = useState(undefined);
+
+ IsLogged();
  useEffect(()=>{
   let detail = getMovieDetails(location.movie_id)
   detail.then(res=> {

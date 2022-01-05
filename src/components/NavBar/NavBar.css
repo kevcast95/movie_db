@@ -1,22 +1,40 @@
 .NavBar__container {
  width: 100%;
- padding: 10px 0px;
+ display: flex;
+ justify-content: space-between;
+ padding: 10px 20px;
+}
+
+.Movieapp__logo {
+    font-weight: bold;
+    color: #383b4b;
+    border: 2px solid white;
+    background-color: rgb(1, 210, 119);
+    padding: 10px;
+    text-align: center;
 }
 
 .NavBar__container > ul {
- width: 100%;
+ width: 50%;
  display: flex;
  justify-content: space-around;
 }
 
-.Icon__container {
+.Tab__container {
  list-style: none;
  display: flex;
  justify-content: center;
  align-items: center;
+ color: #9898b3;
+ cursor: pointer;
+ padding: 0 5px;
 }
 
-.Tab_icons_selected {
+.Tab__container:hover {
+    opacity: 0.8;
+}
+
+.Tab__selected {
  border-bottom: 2px solid #9898b3;
 }
 
@@ -27,3 +45,10 @@
  border-bottom: 2px solid transparent;
 }
 
+@media (max-width: 600px) {
+    .NavBar__container > ul {
+        width: 70%;
+        
+    }
+    
+}

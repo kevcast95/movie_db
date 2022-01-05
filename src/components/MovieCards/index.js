@@ -1,9 +1,29 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { addFavorites, updateFavorites, removeFavorites, db } from '../../connection/firebase';
 import Icons from "../../assets/Icons";
 import "./MovieCards.css";
 
-export default function MovieCards({ movies }) {
+export default function MovieCards({ user,movies }) {
+  const [docListener, setDocListener] = useState(0);
+  const [favoritesList, setFavoritesList] = useState(0);
+  const [favorite, setFavorite] = useState(false);
+
+  const handleFavorites = (movie_id) => {
+    console.log("sdsdsd");
+    setFavorite(!favorite)
+    if (!favorite) {
+      if (docListener !== 0) {
+        if (typeof (docListener) === 'object') {
+          return updateFavorites(movie_id, user)
+        }
+        return addFavorites(movie_id, user)
+      }
+    }else {
+      return removeFavorites(movie_id, user)
+    }
+  }
+
  return (
   <Fragment>
    {movies.map((movie) => {
@@ -22,7 +42,7 @@ export default function MovieCards({ movies }) {
          : movie.title.substr(0, 30) + "..."}
        </h3>
        <p className="Release_date">{movie.release_date}</p>
-       <span>
+       <span onClick={() => handleFavorites(movie.id)}>
         <Icons
          name="Favorite"
          fill="none"
@@ -31,7 +51,7 @@ export default function MovieCards({ movies }) {
         />
         <p>Add to favorite</p>
        </span>
-       <Link to="/details" state={{ movie_id: movie.id  }} className="Detils">Details</Link>
+       <Link to="/details" state={{ movie_id: movie.id  }} className="details">Details</Link>
       </div>
       <span className="Movie_rate">{`IMDB ${movie.vote_average}`}</span>
      </div>

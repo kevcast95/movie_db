@@ -8,6 +8,7 @@
   width: 100%;
   height: 100vh;
   font-family: 'Ubuntu', sans-serif;
+  overflow-x: hidden;
 }
 
 /* width */

@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
 import MovieCards from '../../components/MovieCards';
 import NavBar from '../../components/NavBar';
+import IsLogged from "../../utils/IsLogged";
 
 import './Favorite.css';
 
 export default function Favorite() {
-
+  IsLogged();
  const moviesTest = [{
   "adult": false,
   "backdrop_path": "/xnFmcq40R0umHHLXTpvOW5GTdMh.jpg",
