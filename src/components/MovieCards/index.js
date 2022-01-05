@@ -6,7 +6,7 @@ import "./MovieCards.css";
 
 export default function MovieCards({ user,movies }) {
   const [docListener, setDocListener] = useState(0);
-  const [favoritesList, setFavoritesList] = useState(0);
+  const [favoritesList, setFavoritesList] = useState([]);
   const [favorite, setFavorite] = useState(false);
 
 
@@ -31,7 +31,7 @@ export default function MovieCards({ user,movies }) {
   }, [docListener])
 
   const handleFavorites = (movie_id) => {
-    if (favoritesList && !favoritesList.includes(movie_id)) {
+    if (!favoritesList.includes(movie_id)) {
       if (docListener !== 0) {
         if (typeof (docListener) === 'object') {
           return updateFavorites(movie_id, user)
