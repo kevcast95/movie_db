@@ -31,8 +31,6 @@ export default function Favorite() {
       });
   }, []);
 
-
-  console.log(favoritesList);
   useEffect(() => {
     if (docListener) {
       setFavoritesList(docListener.favorites)
@@ -52,7 +50,7 @@ export default function Favorite() {
     }, 300)
   }, [favoritesList])
 
-  console.log(moviesList);
+  
   if (loading) {
     return <Loading />
   }

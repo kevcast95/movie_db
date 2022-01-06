@@ -48,7 +48,7 @@ export default function NavBar() {
             return(
                 <li 
                     key={index} className={tabPosition.pathname === tab.page? "Tab__selected Tab__container": "Tab__container"} 
-                    onClick={()=>{tab.action(tab.page);console.log('logooo');}}
+                    onClick={()=>tab.action(tab.page)}
                 >
                     {tab.tabName}
             </li>

@@ -31,7 +31,7 @@ export default function MovieCards({ user,movies,from }) {
   }, [docListener])
 
   const handleFavorites = (movie_id) => {
-    console.log(movie_id);
+    
     if (!favoritesList.includes(movie_id)) {
       if (docListener !== 0) {
         if (typeof (docListener) === 'object') {
@@ -45,7 +45,7 @@ export default function MovieCards({ user,movies,from }) {
     setFavorite(!favorite);
    
   }
-  console.log(favoritesList);
+  
  return (
   <Fragment>
    {movies.map((movie) => {
