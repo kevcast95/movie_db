@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useNavigate  } from "react-router-dom";
-
 import { auth, signInWithEmailAndPassword, googleLogin } from "../../connection/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { toastMessage } from '../../utils/toast'
@@ -12,7 +11,7 @@ export default  function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  
+
   useEffect(() => {
     if (loading) {
       return
@@ -57,7 +56,9 @@ export default  function Login() {
      <button  type="button" className="Main_btn secundary" onClick={()=>googleLogin()}>
       Login with Google
      </button>
-     <p className="Create_text"> Create your own account. <Link to="/register">Register</Link> now! </p>
+     <p className="Create_text"> 
+        Create your own account. <Link to="/register" className="link_to">Register</Link> now! 
+      </p>
     </form>
   </div>
  </Fragment>

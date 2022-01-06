@@ -6,7 +6,7 @@
 
 .List__movie_container {
  width: 100%;
- max-height: calc(100vh - 60px);
+ max-height: calc(100vh - 80px);
  overflow-y: auto;
  overflow-x: hidden;
 }

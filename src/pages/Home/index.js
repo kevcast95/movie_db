@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import MovieCards from '../../components/MovieCards';
 import NavBar from '../../components/NavBar';
-import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../../connection/firebase"
-import { getPopularMovies } from '../../connection/movieDbApi';
 import Loading from "../../components/Loading"
 import IsLogged from "../../utils/IsLogged";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../../connection/firebase";
+import { toastMessage } from '../../utils/toast';
+import { getPopularMovies } from '../../connection/movieDbApi';
 
 import './Home.css';
 
@@ -23,6 +24,7 @@ export default function Home() {
     movies.then(res=> {
       setMoviesList(res.data.results)
     })
+    .catch(error => toastMessage('error', 'Upps, looks like we dont have movies to show!, please try later', 'getListadoError'));
     setTimeout(()=>{
       setLoading(false)
     },300)
@@ -46,6 +48,7 @@ export default function Home() {
           <MovieCards
             user={user.email}
             movies={moviesList}
+            from={"home"}
           />
         }
       </div>

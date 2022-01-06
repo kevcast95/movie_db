@@ -62,7 +62,11 @@
  color: white;
 }
 
-@media (min-width: 400px) {
+.link_to {
+    color: rgb(1, 210, 119);
+}
+
+@media (min-width: 600px) {
  .Login__container {
   width: 600px;
  }

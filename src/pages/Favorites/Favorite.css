@@ -6,7 +6,7 @@
 
 .Favorites_list {
  width: 100%;
- height: calc(100vh - 60px);
+ height: calc(100vh - 80px);
  max-height: calc(100vh - 60px);
  overflow-y: auto;
 }
@@ -24,6 +24,16 @@
   width: 100vw;
   overflow-x: hidden;
  }
+
+   .Favorites_list {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding-right: 10px;
+   }
  
 }
 

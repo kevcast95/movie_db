@@ -3,7 +3,7 @@ import { Link, useNavigate  } from "react-router-dom";
 import { auth, signUpWithEmailAndPassword } from "../../connection/firebase"
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toastMessage } from '../../utils/toast';
-import "./Login.css";
+import "./Register.css";
 
 export default  function Register() {
   const navigate = useNavigate ();
@@ -61,7 +61,10 @@ export default  function Register() {
      <button  type="button" className="Main_btn primary" onClick={()=>handleSignUp()}>
       Register
      </button>
-     <p className="Create_text"> If you have an account account. <Link to="/">Login</Link> now! </p>
+     <p className="Create_text"> 
+        If you have an account account. 
+        <Link to="/" className="link_to"> Login</Link> now! 
+      </p>
     </form>
   </div>
  </Fragment>

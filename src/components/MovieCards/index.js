@@ -4,7 +4,7 @@ import { addFavorites, updateFavorites, removeFavorites, db } from '../../connec
 import Icons from "../../assets/Icons";
 import "./MovieCards.css";
 
-export default function MovieCards({ user,movies }) {
+export default function MovieCards({ user,movies,from }) {
   const [docListener, setDocListener] = useState(0);
   const [favoritesList, setFavoritesList] = useState([]);
   const [favorite, setFavorite] = useState(false);
@@ -13,15 +13,15 @@ export default function MovieCards({ user,movies }) {
 
   useEffect(() => {
     const subscribe = db
-      .collection("fav_users")
-      .onSnapshot((snapshot) => {
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        const list = data.filter(item => item.id === user)
-        list !== docListener && setDocListener(list[0]);
-      });
+    .collection("fav_users")
+    .onSnapshot((snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      const list = data.filter(item => item.id === user)
+      list !== docListener && setDocListener(list[0]);
+    });
   }, [favorite]);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function MovieCards({ user,movies }) {
   }, [docListener])
 
   const handleFavorites = (movie_id) => {
+    console.log(movie_id);
     if (!favoritesList.includes(movie_id)) {
       if (docListener !== 0) {
         if (typeof (docListener) === 'object') {
@@ -44,7 +45,7 @@ export default function MovieCards({ user,movies }) {
     setFavorite(!favorite);
    
   }
-
+  console.log(favoritesList);
  return (
   <Fragment>
    {movies.map((movie) => {
@@ -63,7 +64,7 @@ export default function MovieCards({ user,movies }) {
          : movie.title.substr(0, 30) + "..."}
        </h3>
        <p className="Release_date">{movie.release_date}</p>
-       <span onClick={() => handleFavorites(movie.id)}>
+       {from === "home" && <span onClick={() => handleFavorites(movie.id)}>
         <Icons
          name="Favorite"
          fill={ (favoritesList && favoritesList.includes(movie.id))? "#01d277": "none"}
@@ -71,7 +72,7 @@ export default function MovieCards({ user,movies }) {
          className="Add_to_fav"
         />
         <p>Add to favorite</p>
-       </span>
+       </span>}
        <Link to="/details" state={{ movie_id: movie.id  }} className="details">Details</Link>
       </div>
       <span className="Movie_rate">{`IMDB ${movie.vote_average}`}</span>

@@ -2,6 +2,7 @@
  position: relative;
  width: 370px;
  height: 100vh;
+ background: linear-gradient(#383b4b,#0f0f18);
  max-height: 100vh;
  margin: 0 auto;
  overflow-y: auto;
@@ -20,8 +21,8 @@
 .Detail__transition_background {
  position: absolute;
  width: 100%;
- top: 0px;
- height: 100vh;
+ top: 80px;
+ height: calc(100vh - 80px);
  display: flex;
  flex-direction: column;
  justify-content: flex-end;
