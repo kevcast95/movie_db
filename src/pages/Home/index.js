@@ -27,7 +27,7 @@ export default function Home() {
     .catch(error => toastMessage('error', 'Upps, looks like we dont have movies to show!, please try later', 'getListadoError'));
     setTimeout(()=>{
       setLoading(false)
-    },300)
+    },500)
   },[page])
 
   function navigationMovies(direction) {

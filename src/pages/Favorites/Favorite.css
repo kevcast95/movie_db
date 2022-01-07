@@ -5,10 +5,20 @@
 }
 
 .Favorites_list {
+ position: relative;
  width: 100%;
  height: calc(100vh - 80px);
  max-height: calc(100vh - 60px);
  overflow-y: auto;
+}
+
+.Favorites_list > h1 {
+  position: absolute;
+  text-align: center;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (min-width: 600px) {
