@@ -48,7 +48,7 @@ export default function MovieCards({ user,movies,from }) {
   
  return (
   <Fragment>
-   {movies.map((movie) => {
+   {movies?.map((movie) => {
     return (
      <div className="Cards__container" key={movie.id}>
       <div className="Img__container">
