@@ -44,7 +44,7 @@ export default function Home() {
     <NavBar/>
     <div className="List__movie_container">
       <div className="Movies_list">
-        {user && 
+        {user && moviesList?.length > 0 &&
           <MovieCards
             user={user.email}
             movies={moviesList}

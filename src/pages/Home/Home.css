@@ -59,6 +59,7 @@
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0 auto;

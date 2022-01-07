@@ -73,7 +73,7 @@ export default function MovieCards({ user,movies,from }) {
         />
         <p>Add to favorite</p>
        </span>}
-       <Link to="/details" state={{ movie_id: movie.id  }} className="details">Details</Link>
+       <Link to="/details" state={{ movie_id: movie.id }} className="details">Details</Link>
       </div>
       <span className="Movie_rate">{`IMDB ${movie.vote_average}`}</span>
      </div>

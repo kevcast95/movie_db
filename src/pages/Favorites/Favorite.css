@@ -38,6 +38,7 @@
    .Favorites_list {
     width: 100vw;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     overflow-y: auto;
     overflow-x: hidden;

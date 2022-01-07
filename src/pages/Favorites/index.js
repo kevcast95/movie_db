@@ -60,13 +60,14 @@ export default function Favorite() {
       <div className='Favorites__container'>
         <NavBar />
         <div className="Favorites_list">
-          {moviesList.length === 0 &&
+          {moviesList.length === 0 ?
             <h1>No favorite movies </h1>
+            :
+            <MovieCards
+              movies={moviesList}
+              from={"faorites"}
+            />
           }
-          <MovieCards
-            movies={moviesList}
-            from={"faorites"}
-          />
         </div>
       </div>
     </Fragment>
